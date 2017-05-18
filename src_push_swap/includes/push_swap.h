@@ -24,7 +24,12 @@ typedef struct			s_dlist
 	struct s_dlist		*prev;
 }						t_dlist;
 
-t_dlist		create_list(t_dlist list, char **argv);
-t_dlist		dlistnew(char *str);
-int		check_value(char *str);
+void	ft_error(int error);
+void 	ft_push_swap(int argc, char **argv);
+void    ft_print_pile(int *pile, int argc);
+int 	ft_check_digit(char *str);
+int     ft_check_min_max(char *str);
+long long int	ft_atol(const char *str);
+int		ft_check_double(int *pa, int argc);
+
 #endif

@@ -135,7 +135,6 @@ int					ft_isprint(int c);
 int					ft_isupper(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-int     			ft_isspace(int c);
 
 char				*ft_itoa_base(long long int value, int base);
 int					nblen(long long int value, int base);

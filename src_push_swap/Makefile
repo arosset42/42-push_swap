@@ -19,7 +19,7 @@ LIB_PATH		=	libft
 LIB				=	$(LIB_PATH)/libft.a
 LIB_LINK		=	-Llibft -lft
 
-SRC				=	push_swap.c
+SRC				=	push_swap.c error.c ft_check_argv.c ft_atol.c 
 HEADER 			=	includes/push_swap.h
 
 OBJS			=	$(SRC:.c=.o)
@@ -62,8 +62,8 @@ clean :
 
 fclean : clean
 	@echo "\n"
-	@make -C $(LIB_PATH) fclean
-	@echo $(DELETE_LIB) : $(LIB)
+#	@make -C $(LIB_PATH) fclean
+#	ß@echo $(DELETE_LIB) : $(LIB)
 	@rm -f $(NAME)
 	@@echo $(DELETE) : $(NAME)
 

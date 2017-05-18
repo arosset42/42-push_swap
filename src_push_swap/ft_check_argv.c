@@ -1,51 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_check_argv.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/17 13:47:59 by arosset           #+#    #+#             */
-/*   Updated: 2017/05/17 13:48:47 by arosset          ###   ########.fr       */
+/*   Created: 2017/05/18 14:59:12 by arosset           #+#    #+#             */
+/*   Updated: 2017/05/18 14:59:32 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int		main(int argc, char **argv)
+int		ft_check_digit(char *str)
 {
+	int 	i;
 
-	if (argc != 1)
+	i = 0;
+	while (str[i])
 	{
-		ft_push_swap(argc, argv);
+		if (ft_isdigit(str[i]) || str[i] == '-')
+			i++;
+		else
+			return (-1);
 	}
-	else
-		ft_error(1);
-	return (0);
+	return (1);
 }
 
-void 	ft_push_swap(int argc, char **argv)
+int		ft_check_min_max(char *str)
 {
-	int		pa[argc];
-	int		i;
+    long long int	i;
+
+	i = ft_atol(str);
+	if (i > 2147483648 || i < -2147483649)
+		return (-1);
+	else
+		return (1);
+}
+
+int		ft_check_double(int *pa, int argc)
+{
+	int i;
+	int j;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
 	{
-		if (ft_check_digit(argv[i]) != -1 && ft_check_min_max(argv[i]) != -1)
+		j = 1;
+		while (j < argc)
 		{
-			pa[i] = ft_atoi(argv[i]);
-			i++;
+			if ((pa[i] == pa[j]) && (i != j))
+				return (-1);
+			j++;
 		}
-		else
-			ft_error(2);
+		i++;
 	}
-	if (ft_check_double(pa, argc) != -1)
-	{
-		ft_putstr("ok\n");
-	}
-	else
-		ft_error(3);
-	ft_print_pile(pa, argc);
-
+	return (1);
 }
