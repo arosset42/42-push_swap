@@ -14,7 +14,6 @@
 
 int		main(int argc, char **argv)
 {
-
 	if (argc != 1)
 	{
 		ft_push_swap(argc, argv);
@@ -42,7 +41,7 @@ void 	ft_push_swap(int argc, char **argv)
 	}
 	if (ft_check_double(pa, argc) != -1)
 	{
-		ft_putstr("ok\n");
+		ft_choice_algo(pa, argc)
 	}
 	else
 		ft_error(3);
