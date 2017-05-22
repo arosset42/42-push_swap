@@ -12,7 +12,7 @@
 
 #include "includes/push_swap.h"
 
-int		ft_check(int argc, char *str)
+int		ft_check(char *str)
 {
 	if (ft_check_digit(str) == -1 || ft_check_min_max(str) == -1)
 		return(-1);
@@ -46,22 +46,18 @@ int		ft_check_min_max(char *str)
 		return (1);
 }
 
-// int		ft_check_double(int *pa, int argc)
-// {
-// 	int i;
-// 	int j;
-//
-// 	i = 1;
-// 	while (i < argc)
-// 	{
-// 		j = 1;
-// 		while (j < argc)
-// 		{
-// 			if ((pa[i] == pa[j]) && (i != j))
-// 				return (-1);
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return (1);
-// }
+void	ft_check_double(t_plist *lst, int value)
+{
+	t_node *elem;
+
+	if (lst)
+	{
+		elem = lst->head;
+		while (elem)
+		{
+			if (elem->val == value)
+				ft_error(3);
+			elem = elem->next;
+		}
+	}
+}

@@ -26,20 +26,25 @@ int		main(int argc, char **argv)
 
 void 	ft_push_swap(int argc, char **argv)
 {
-	t_list		*list_a;
-	t_list		*list_b;
+	t_plist		*list_a;
+	t_plist		*list_b;
+	long		nb;
 	int			i;
 
 	i = 1;
-	while (i < size)
+	list_a = ft_plistnew();
+	list_b = ft_plistnew();
+	if (argc < 1 || !list_a || !list_b)
+		ft_error(10);
+	if (argc == 1)
+		return (0);
+	while (argc-- > 1)
 	{
-		if (i = 1)
-			new = ft_lstnew(ft_atoi(argv[i]), 1);
-		else
+		nb = ft_atol(argv[i++]);
+		ft_check_double(list_a, (int)nb);
+		list_a = ft_plistadd(list_a, (int)nb);
+	}
 
-
-	list_a =
-	list_b = ft_lstnew(NULL, 0);
 
 
 }

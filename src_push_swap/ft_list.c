@@ -12,15 +12,18 @@
 
 #include "push_swap.h"
 
-t_list		*ft_create_list_a(t_list *list_a, int argc, char **argv)
+t_plist     *ft_plistnew(void)
 {
-	t_list	*new;
-	int		i;
+    t_list	*new;
 
-	i = 1;
-	while (i < argc && ft_check(argc, argv[i]) != -1)
-	{
-		if (i = 1)
-			new = ft_lstnew(argv[i], 1);
-
+    if (!(new = (t_list*)malloc(sizeof(t_list))))
+    	return (NULL);
+    if (new != NULL)
+    {
+    	new->argc = 0;
+    	new->coup = 0;
+    	new->head = NULL;
+    	new->tail = NULL;
+    }
+    return (new);
 }
