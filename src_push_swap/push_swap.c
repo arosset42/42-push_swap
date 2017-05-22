@@ -14,6 +14,7 @@
 
 int		main(int argc, char **argv)
 {
+
 	if (argc != 1)
 	{
 		ft_push_swap(argc, argv);
@@ -25,26 +26,28 @@ int		main(int argc, char **argv)
 
 void 	ft_push_swap(int argc, char **argv)
 {
-	int		pa[argc];
-	int		i;
+	t_list		*list_a;
+	t_list		*list_b;
+	int			i;
 
 	i = 1;
-	while (argv[i])
+	while (i < size)
 	{
-		if (ft_check_digit(argv[i]) != -1 && ft_check_min_max(argv[i]) != -1)
-		{
-			pa[i] = ft_atoi(argv[i]);
-			i++;
-		}
+		if (i = 1)
+			new = ft_lstnew(ft_atoi(argv[i]), 1);
 		else
-			ft_error(2);
-	}
-	if (ft_check_double(pa, argc) != -1)
-	{
-		ft_choice_algo(pa, argc)
-	}
-	else
-		ft_error(3);
-	ft_print_pile(pa, argc);
+
+
+	list_a =
+	list_b = ft_lstnew(NULL, 0);
+
 
 }
+
+
+// typedef struct		s_list
+// {
+// 	void			*content;
+// 	size_t			content_size;
+// 	struct s_list	*next;
+// }					t_list;

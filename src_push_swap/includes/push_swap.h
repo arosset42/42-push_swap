@@ -17,19 +17,21 @@
 # include <stdlib.h>
 # include "../libft/includes/libft.h"
 
-typedef struct			s_dlist
+typedef struct			s_plist
 {
 	int					value;
-	struct s_dlist		*next;
-	struct s_dlist		*prev;
-}						t_dlist;
+	struct s_plist		*next;
+}						t_plist;
 
 void	ft_error(int error);
+int		ft_check(int argc, char *str);
+int		ft_check_digit(char *str);
+int		ft_check_digit(char *str);
+
+long long int	ft_atol(const char *str);
+
 void 	ft_push_swap(int argc, char **argv);
 void    ft_print_pile(int *pile, int argc);
-int 	ft_check_digit(char *str);
-int     ft_check_min_max(char *str);
-long long int	ft_atol(const char *str);
-int		ft_check_double(int *pa, int argc);
 
+t_list		ft_create_list_a(t_list *list_a, int argc, char **argv);
 #endif

@@ -19,7 +19,7 @@ LIB_PATH		=	libft
 LIB				=	$(LIB_PATH)/libft.a
 LIB_LINK		=	-Llibft -lft
 
-SRC				=	push_swap.c error.c ft_check_argv.c ft_atol.c 
+SRC				=	push_swap.c
 HEADER 			=	includes/push_swap.h
 
 OBJS			=	$(SRC:.c=.o)

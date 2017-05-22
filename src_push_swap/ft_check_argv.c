@@ -12,6 +12,14 @@
 
 #include "includes/push_swap.h"
 
+int		ft_check(int argc, char *str)
+{
+	if (ft_check_digit(str) == -1 || ft_check_min_max(str) == -1)
+		return(-1);
+	else
+		return (1);
+}
+
 int		ft_check_digit(char *str)
 {
 	int 	i;
@@ -38,22 +46,22 @@ int		ft_check_min_max(char *str)
 		return (1);
 }
 
-int		ft_check_double(int *pa, int argc)
-{
-	int i;
-	int j;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = 1;
-		while (j < argc)
-		{
-			if ((pa[i] == pa[j]) && (i != j))
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
+// int		ft_check_double(int *pa, int argc)
+// {
+// 	int i;
+// 	int j;
+//
+// 	i = 1;
+// 	while (i < argc)
+// 	{
+// 		j = 1;
+// 		while (j < argc)
+// 		{
+// 			if ((pa[i] == pa[j]) && (i != j))
+// 				return (-1);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
