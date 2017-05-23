@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void 	ft_choice_algo(int	*pa, int argc)
+void 	main_algo(t_plist *list_a, t_plist *list_b)
 {
-	if (argc <= 50)
-		ft_algo_one(pa, argc)
+	if (list_a->argc <= 50)
+		ft_algo_one(list_a, list_b)
 	else
 		ft_putstr("plus de 50 et jai pas de 2eme algo\n");
 }
 
-void 	ft_algo_one(int *pa, int argc)
+void 	ft_algo_one(t_plist *list_a, t_plist *list_b)
 {
 	
 

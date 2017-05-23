@@ -36,23 +36,17 @@ void 	ft_push_swap(int argc, char **argv)
 	list_b = ft_plistnew();
 	if (argc < 1 || !list_a || !list_b)
 		ft_error(10);
-	if (argc == 1)
-		return (0);
 	while (argc-- > 1)
 	{
-		nb = ft_atol(argv[i++]);
-		ft_check_double(list_a, (int)nb);
-		list_a = ft_plistadd(list_a, (int)nb);
+		if (ft_check(argv[i]) == 1)
+		{
+			nb = ft_atol(argv[i++]);
+			ft_check_double(list_a, (int)nb);
+			list_a = ft_plistadd(list_a, (int)nb);
+		}
 	}
+	main_algo(list_a, list_b);
 
 
 
 }
-
-
-// typedef struct		s_list
-// {
-// 	void			*content;
-// 	size_t			content_size;
-// 	struct s_list	*next;
-// }					t_list;

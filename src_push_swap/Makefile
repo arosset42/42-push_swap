@@ -15,11 +15,11 @@ NAME			=	push_swap
 CC				=	gcc
 FLAGS			=	-Wall -Wextra -Werror
 
-LIB_PATH		=	libft
-LIB				=	$(LIB_PATH)/libft.a
-LIB_LINK		=	-Llibft -lft
+LIB_PATH		= 	../libft/
+LIB				=	../libft/libft.a
+LIB_LINK		=
 
-SRC				=	push_swap.c
+SRC				=	push_swap.c ft_list.c error.c ft_check_argv.c ft_atol.c
 HEADER 			=	includes/push_swap.h
 
 OBJS			=	$(SRC:.c=.o)
@@ -37,6 +37,7 @@ SUCCESS			=	$(GREEN)SUCCESS$(RESET)
 OK				=	$(PURPLE) OK $(RESET)
 DELETE			=	$(RED) DELETE $(RESET)
 DELETE_LIB		=	$(RED) DELETE LIB$(RESET)
+
 all : $(NAME)
 
 test :

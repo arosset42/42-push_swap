@@ -15,9 +15,11 @@
 int		ft_check(char *str)
 {
 	if (ft_check_digit(str) == -1 || ft_check_min_max(str) == -1)
-		return(-1);
-	else
-		return (1);
+	{
+		ft_error(10);
+		return (0);
+	}
+	return (1);
 }
 
 int		ft_check_digit(char *str)
@@ -30,7 +32,10 @@ int		ft_check_digit(char *str)
 		if (ft_isdigit(str[i]) || str[i] == '-')
 			i++;
 		else
+		{
+			ft_error(2);
 			return (-1);
+		}
 	}
 	return (1);
 }
@@ -41,7 +46,10 @@ int		ft_check_min_max(char *str)
 
 	i = ft_atol(str);
 	if (i > 2147483648 || i < -2147483649)
+	{
+		ft_error(4);
 		return (-1);
+	}
 	else
 		return (1);
 }
@@ -55,7 +63,7 @@ void	ft_check_double(t_plist *lst, int value)
 		elem = lst->head;
 		while (elem)
 		{
-			if (elem->val == value)
+			if (elem->value == value)
 				ft_error(3);
 			elem = elem->next;
 		}

@@ -15,13 +15,13 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft/includes/libft.h"
+# include "../../libft/includes/libft.h"
 
 typedef struct			s_node
 {
 	int					value;
 	struct s_node		*next;
-}
+}						t_node;
 
 typedef struct			s_plist
 {
@@ -32,13 +32,20 @@ typedef struct			s_plist
 }						t_plist;
 
 void				ft_error(int error);
+
 int					ft_check(char *str);
 int					ft_check_digit(char *str);
-int					ft_check_digit(char *str);
+int					ft_check_min_max(char *str);
+void				ft_check_double(t_plist *lst, int value);
 
 long long int		ft_atol(const char *str);
 
 void 				ft_push_swap(int argc, char **argv);
-void    			ft_print_pile(int *pile, int argc);
+
+
+
+t_plist     *ft_plistnew(void);
+t_plist		*ft_plistadd(t_plist *lst, int value);
+void    	ft_print_pile(t_plist *lst);
 
 #endif

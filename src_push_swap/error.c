@@ -27,14 +27,17 @@ void	ft_error(int error)
     exit(EXIT_FAILURE);
 }
 
-// void    ft_print_pile(int *pile, int argc)
-// {
-//     int i;
-//
-//     i = 1;
-//     while (i < argc)
-//     {
-//         ft_printf("pile [%d] == %d\n", i, pile[i]);
-//         i++;
-//     }
-// }
+void    ft_print_pile(t_plist *lst)
+{
+	t_node	*elem;
+
+	if (lst)
+	{
+		elem = lst->head;
+		while (elem)
+		{
+			ft_printf("value = %d\n", elem->value);
+			elem = elem->next;
+		}
+	}
+}

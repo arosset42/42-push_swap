@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 t_plist     *ft_plistnew(void)
 {
-    t_list	*new;
+    t_plist	*new;
 
-    if (!(new = (t_list*)malloc(sizeof(t_list))))
+    if (!(new = (t_plist*)malloc(sizeof(t_plist))))
     	return (NULL);
     if (new != NULL)
     {
@@ -26,4 +26,30 @@ t_plist     *ft_plistnew(void)
     	new->tail = NULL;
     }
     return (new);
+}
+
+t_plist		*ft_plistadd(t_plist *lst, int value)
+{
+	t_node	*new;
+
+	if (lst != NULL)
+	{
+		if ((new = (t_node*)malloc(sizeof(t_node))) != NULL)
+		{
+			new->value = value;
+			new->next = NULL;
+			if (lst->tail == NULL)
+			{
+				lst->head = new;
+				lst->tail = new;
+			}
+			else
+			{
+				lst->tail->next = new;
+				lst->tail = new;
+			}
+		}
+		lst->argc++;
+	}
+	return (lst);
 }
