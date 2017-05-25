@@ -14,20 +14,48 @@
 
 void 	ft_pa(t_plist *list_a, t_plist *list_b)
 {
+	t_node		*elem;
+
 	if (list_b->head)
 	{
-		list_a = ft_plistadd(list_a, list_b->head->value);
-		list_b->head = list_b->head->next;
+			elem = list_b->head;
+			if (!list_a->head)
+			{
+				list_b->head = elem->next;
+				elem->next = NULL;
+				list_a->head = elem;
+				list_a->tail = elem;
+			}
+			else
+			{
+				list_b->head = elem->next;
+				elem->next = list_a->head;
+				list_a->head = elem;
+			}
 	}
 	ft_putendl_fd("pa", 1);
 }
 
 void 	ft_pb(t_plist *list_a, t_plist *list_b)
 {
-	if (list_a->head)
+	t_node	*elem;
+
+	if (list_a->head != NULL)
 	{
-		list_b = ft_plistadd(list_b, list_a->head->value);
-		list_a->head = list_a->head->next;
+		elem = list_a->head;
+		if (list_b->head == NULL)
+		{
+			list_a->head = elem->next;
+			elem->next = NULL;
+			list_b->head = elem;
+			list_b->tail = elem;
+		}
+		else
+		{
+			list_a->head = elem->next;
+			elem->next = list_b->head;
+			list_b->head = elem;
+		}
 	}
 	ft_putendl_fd("pb", 1);
 }

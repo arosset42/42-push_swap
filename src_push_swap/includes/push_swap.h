@@ -55,4 +55,11 @@ void				ft_ss(t_plist *list_a, t_plist *list_b);
 void 				ft_pa(t_plist *list_a, t_plist *list_b);
 void 				ft_pb(t_plist *list_a, t_plist *list_b);
 
+void 				ft_ra(t_plist *list_a);
+void 				ft_rb(t_plist *list_b);
+void 				ft_rr(t_plist *list_a, t_plist *list_b);
+
+void 				ft_rra(t_plist *list_a);
+void 				ft_rrb(t_plist *list_b);
+void 				ft_rrr(t_plist *list_a, t_plist *list_b);
 #endif

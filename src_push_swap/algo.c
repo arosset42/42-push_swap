@@ -24,7 +24,13 @@ void 	main_algo(t_plist *list_a, t_plist *list_b)
 		ft_putendl("start test\n");
 		ft_pb(list_a, list_b);
 		ft_pb(list_a, list_b);
+		ft_pb(list_a, list_b);
 		ft_pa(list_a, list_b);
+		ft_rra(list_a);
+		ft_pb(list_a, list_b);
+		ft_ra(list_a);
+		ft_rrb(list_b);
+		ft_rrr(list_a, list_b);
 		ft_putendl("\nverif\nlist_a after");
 		ft_print_pile(list_a);
 		ft_putendl("list_b after");
