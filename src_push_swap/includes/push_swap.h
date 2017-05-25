@@ -42,10 +42,17 @@ long long int		ft_atol(const char *str);
 
 void 				ft_push_swap(int argc, char **argv);
 
+void 				main_algo(t_plist *list_a, t_plist *list_b);
 
+t_plist     		*ft_plistnew(void);
+t_plist				*ft_plistadd(t_plist *lst, int value);
+void    			ft_print_pile(t_plist *lst);
 
-t_plist     *ft_plistnew(void);
-t_plist		*ft_plistadd(t_plist *lst, int value);
-void    	ft_print_pile(t_plist *lst);
+void 				ft_sa(t_plist *list_a);
+void				ft_sb(t_plist *list_b);
+void				ft_ss(t_plist *list_a, t_plist *list_b);
+
+void 				ft_pa(t_plist *list_a, t_plist *list_b);
+void 				ft_pb(t_plist *list_a, t_plist *list_b);
 
 #endif

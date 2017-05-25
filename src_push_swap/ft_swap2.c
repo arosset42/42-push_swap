@@ -10,4 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "./includes/push_swap.h"
+
+void 	ft_pa(t_plist *list_a, t_plist *list_b)
+{
+	if (list_b->head)
+	{
+		list_a = ft_plistadd(list_a, list_b->head->value);
+		list_b->head = list_b->head->next;
+	}
+	ft_putendl_fd("pa", 1);
+}
+
+void 	ft_pb(t_plist *list_a, t_plist *list_b)
+{
+	if (list_a->head)
+	{
+		list_b = ft_plistadd(list_b, list_a->head->value);
+		list_a->head = list_a->head->next;
+	}
+	ft_putendl_fd("pb", 1);
+}

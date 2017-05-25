@@ -19,7 +19,9 @@ LIB_PATH		= 	../libft/
 LIB				=	../libft/libft.a
 LIB_LINK		=
 
-SRC				=	push_swap.c ft_list.c error.c ft_check_argv.c ft_atol.c
+SRC				=	push_swap.c ft_list.c error.c ft_check_argv.c ft_atol.c \
+					algo.c ft_swap1.c ft_swap2.c
+
 HEADER 			=	includes/push_swap.h
 
 OBJS			=	$(SRC:.c=.o)
@@ -34,14 +36,12 @@ PURPLE			=	"\033[35m"
 
 # MESSAGE
 SUCCESS			=	$(GREEN)SUCCESS$(RESET)
-OK				=	$(PURPLE) OK $(RESET)
-DELETE			=	$(RED) DELETE $(RESET)
-DELETE_LIB		=	$(RED) DELETE LIB$(RESET)
+OK				=	$(PURPLE)OK$(RESET)
+DELETE			=	$(RED)DELETE$(RESET)
+DELETE_LIB		=	$(RED)DELETE LIB$(RESET)
+TEST 			= 	$(YELLOW)DEBUT TEST$(RESET)
 
 all : $(NAME)
-
-test :
-	@echo $(OK)
 
 $(NAME) : $(LIB) $(OBJS)
 	@$(CC) $(LIB_LINK) $^ -o $@
@@ -70,6 +70,10 @@ fclean : clean
 
 
 re : fclean all
+
+test : all
+	@echo $(TEST)
+	@./push_swap 9 8 7 6 5 4 3 2 1 0
 
 norme :
 	norminette $(SRC) includes/push_swap.h
