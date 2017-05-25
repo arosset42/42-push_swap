@@ -16,32 +16,27 @@ void 	main_algo(t_plist *list_a, t_plist *list_b)
 {
 	if (list_a->argc <= 50 && list_b->argc <= 50)
 	{
-
-		ft_putendl("list_a =>");
-		ft_print_pile(list_a);
-		ft_putendl("list_b =>");
-		ft_print_pile(list_b);
-		ft_putendl("start test\n");
-		ft_pb(list_a, list_b);
-		ft_pb(list_a, list_b);
-		ft_pb(list_a, list_b);
-		ft_pa(list_a, list_b);
-		ft_rra(list_a);
-		ft_pb(list_a, list_b);
-		ft_ra(list_a);
-		ft_rrb(list_b);
-		ft_rrr(list_a, list_b);
-		ft_putendl("\nverif\nlist_a after");
-		ft_print_pile(list_a);
-		ft_putendl("list_b after");
-		ft_print_pile(list_b);
+		// ft_pb(list_a, list_b);
+		// ft_pb(list_a, list_b);
+		ft_algo_one(list_a, list_b);
 	}
 	else
 		ft_putstr("plus de 50 et jai pas de 2eme algo\n");
 }
 
-// void 	ft_algo_one(t_plist *list_a, t_plist *list_b)
-// {
-//
-//
-// }
+void 	ft_algo_one(t_plist *list_a, t_plist *list_b)
+{
+	int		stop;
+
+	stop = 1;
+	while (!ft_verif_list(list_a->head, list_a->head->next) && stop)
+	{
+		ft_putstr("pas trie\n");
+		ft_print_pile(list_b);
+		ft_putendl("===");
+		ft_print_pile(list_a);
+		stop = 0;
+		// if (list_a->head > list_a->head->next)
+	}
+	ft_putstr("trie");
+}

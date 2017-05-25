@@ -53,3 +53,15 @@ t_plist		*ft_plistadd(t_plist *lst, int value)
 	}
 	return (lst);
 }
+
+int 	ft_verif_list(t_node *head_l, t_node *next_l)
+{
+	while (next_l)
+	{
+		if (head_l->value > next_l->value)
+			return (0);
+		head_l = head_l->next;
+		next_l = next_l->next;
+	}
+	return (1);
+}

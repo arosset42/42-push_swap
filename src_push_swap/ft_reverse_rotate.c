@@ -25,8 +25,8 @@ void 	ft_rra(t_plist *list_a)
 		list_a->head = elem->next;
 		elem->next = NULL;
 		list_a->tail = elem;
-		ft_putendl_fd("rra", 1);
 	}
+	ft_putendl_fd("rra", 1);
 }
 
 void 	ft_rrb(t_plist *list_b)
@@ -42,8 +42,8 @@ void 	ft_rrb(t_plist *list_b)
 		list_b->head = elem->next;
 		elem->next = NULL;
 		list_b->tail = elem;
-		ft_putendl_fd("rrb", 1);
 	}
+	ft_putendl_fd("rrb", 1);
 }
 
 void 	ft_rrr(t_plist *list_a, t_plist *list_b)

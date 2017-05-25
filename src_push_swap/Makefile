@@ -75,5 +75,9 @@ test : all
 	@echo $(TEST)
 	@./push_swap 9 8 7 6 5 4 3 2 1 0 | cat -e
 
+testtri : all
+	@echo $(YELLOW)DEBUT VERIF DEJA TRIE$(RESET)
+	@./push_swap 1 2 3 4 5 6 | cat -e
+
 norme :
 	norminette $(SRC) includes/push_swap.h

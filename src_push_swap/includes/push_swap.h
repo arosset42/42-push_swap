@@ -46,6 +46,8 @@ void 				main_algo(t_plist *list_a, t_plist *list_b);
 
 t_plist     		*ft_plistnew(void);
 t_plist				*ft_plistadd(t_plist *lst, int value);
+int 				ft_verif_list(t_node *head_l, t_node *next_l);
+
 void    			ft_print_pile(t_plist *lst);
 
 void 				ft_sa(t_plist *list_a);
@@ -62,4 +64,7 @@ void 				ft_rr(t_plist *list_a, t_plist *list_b);
 void 				ft_rra(t_plist *list_a);
 void 				ft_rrb(t_plist *list_b);
 void 				ft_rrr(t_plist *list_a, t_plist *list_b);
+
+void 				ft_algo_one(t_plist *list_a, t_plist *list_b);
+
 #endif
