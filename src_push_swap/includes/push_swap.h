@@ -32,6 +32,7 @@ typedef struct			s_plist
 }						t_plist;
 
 void				ft_error(int error);
+int					ft_nbelem(char **tab);
 
 int					ft_check(char *str);
 int					ft_check_digit(char *str);
@@ -41,6 +42,8 @@ void				ft_check_double(t_plist *lst, int value);
 long long int		ft_atol(const char *str);
 
 void 				ft_push_swap(int argc, char **argv);
+void 				ft_push_swap_arg(int nbelem, char **tab);
+
 
 void 				main_algo(t_plist *list_a, t_plist *list_b);
 
@@ -65,6 +68,9 @@ void 				ft_rra(t_plist *list_a);
 void 				ft_rrb(t_plist *list_b);
 void 				ft_rrr(t_plist *list_a, t_plist *list_b);
 
-void 				ft_algo_one(t_plist *list_a, t_plist *list_b);
+int					ft_chr_min(t_node *list);
+int 				ft_chr_max(t_node *list);
+
+void 				ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max);
 
 #endif

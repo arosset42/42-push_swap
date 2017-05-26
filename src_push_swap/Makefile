@@ -20,7 +20,8 @@ LIB				=	../libft/libft.a
 LIB_LINK		=
 
 SRC				=	push_swap.c ft_list.c error.c ft_check_argv.c ft_atol.c \
-					algo.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c
+					algo.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c \
+					ft_min_max.c
 
 HEADER 			=	includes/push_swap.h
 
@@ -74,6 +75,10 @@ re : fclean all
 test : all
 	@echo $(TEST)
 	@./push_swap 9 8 7 6 5 4 3 2 1 0 | cat -e
+
+correction : all
+	@echo $(TEST)
+	@ARG="9 8 7 6 5 4 3 2 1 0"; ./push_swap $ARG | wc -l
 
 testtri : all
 	@echo $(YELLOW)DEBUT VERIF DEJA TRIE$(RESET)
