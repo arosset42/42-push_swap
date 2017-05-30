@@ -41,3 +41,16 @@ int 	ft_chr_max(t_node *list)
 	}
 	return (max);
 }
+
+int		chr_pivot(t_plist *list, int min , int max)
+{
+	int 	ret;
+	int		tmp;
+
+	tmp = max - min;
+	while (!ret)
+	{
+		while (list->head && list->head->value != tmp)
+				list = list->head->next;
+	}
+}
