@@ -6,7 +6,7 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/20 17:35:45 by arosset           #+#    #+#             */
-/*   Updated: 2017/05/20 17:36:05 by arosset          ###   ########.fr       */
+/*   Updated: 2017/05/27 10:56:34 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,29 @@ void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
 	int		stop;
 	int		pivot;
 
-	pivot = max - min;
+	pivot = chr_pivot(list_a->head, min, max);
+	ft_printf("pivot = %d\n", pivot);
 	stop = 1;
-	while ((!ft_verif_list(list_a->head, list_a->head->next) && stop) || list_a)
+	while ((!ft_verif_list(list_a->head, list_a->head->next) && stop) || list_a->head)
 	{
-		if (list_a->head->value > list_a->head->next->value)
+		while (pivot != list_a->head->value)
 		{
-			ft_sa(list_a);
-			ft_pb(list_a, list_b);
-			ft_print_pile(list_b);
-			ft_putendl("==");
-			ft_print_pile(list_a);
-			ft_putendl("trie");
-			sleep(1);
+			if (list_a->head->value > pivot)
+				ft_pb(list_a, list_b);
+			else
+				ft_ra(list_a);
+				sleep(2);
+				ft_putendl("\n=== list_b ===");
+				ft_print_pile(list_b);
+				ft_putendl("==== list_a ===");
+				ft_print_pile(list_a);
 		}
+		ft_putendl("fin algo");
+		break;
 	}
+	ft_putendl("\n\n\n=== list_b ===");
 	ft_print_pile(list_b);
-	ft_putendl("====");
+	ft_putendl("==== list_a ===");
 	ft_print_pile(list_a);
-	ft_putendl("trie");
+	ft_putendl("trie ou pas");
 }

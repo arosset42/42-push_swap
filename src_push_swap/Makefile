@@ -74,7 +74,7 @@ re : fclean all
 
 test : all
 	@echo $(TEST)
-	@./push_swap 9 8 7 6 5 4 3 2 1 0 | cat -e
+	@./push_swap 9 1 2 5 6 7 3 4 8 0  | cat -e
 
 correction : all
 	@echo $(TEST)

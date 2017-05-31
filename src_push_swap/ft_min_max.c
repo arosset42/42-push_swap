@@ -42,15 +42,26 @@ int 	ft_chr_max(t_node *list)
 	return (max);
 }
 
-int		chr_pivot(t_plist *list, int min , int max)
+int		chr_pivot(t_node *list, int min , int max)
 {
+	int		i;
 	int 	ret;
-	int		tmp;
+	t_node	*save;
 
-	tmp = max - min;
-	while (!ret)
+	i = 1;
+	save = list;
+	ft_printf("chr pivot\n");
+	ret = (max - min) / 2;
+	while (ret != list->value)
 	{
-		while (list->head && list->head->value != tmp)
-				list = list->head->next;
+		if (ret != list->value && list)
+			list = list->next;
+		if (!list)
+		{
+			ret++;
+			list = save;
+		}
 	}
+	ft_printf("ret = %d\n", ret);
+	return (ret);
 }

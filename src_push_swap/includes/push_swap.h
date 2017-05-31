@@ -70,6 +70,7 @@ void 				ft_rrr(t_plist *list_a, t_plist *list_b);
 
 int					ft_chr_min(t_node *list);
 int 				ft_chr_max(t_node *list);
+int					chr_pivot(t_node *list, int min , int max);
 
 void 				ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max);
 
