@@ -86,3 +86,6 @@ testtri : all
 
 norme :
 	norminette $(SRC) includes/push_swap.h
+
+save :
+	make fclean && git add . && git commit -m "save" && git push
