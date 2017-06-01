@@ -44,7 +44,7 @@ void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
 				ft_pb(list_a, list_b);
 			else
 				ft_ra(list_a);
-				sleep(2);
+				// sleep(2);
 				ft_putendl("\n=== list_b ===");
 				ft_print_pile(list_b);
 				ft_putendl("==== list_a ===");
@@ -58,4 +58,5 @@ void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
 	ft_putendl("==== list_a ===");
 	ft_print_pile(list_a);
 	ft_putendl("trie ou pas");
+	ft_printf("%S\n", "࠘");
 }
