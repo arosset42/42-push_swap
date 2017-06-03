@@ -12,7 +12,7 @@
 
 #include "./includes/push_swap.h"
 
-void 	ft_pa(t_plist *list_a, t_plist *list_b)
+void 	ft_pa(t_plist *list_a, t_plist *list_b, int param)
 {
 	t_node		*elem;
 
@@ -33,10 +33,11 @@ void 	ft_pa(t_plist *list_a, t_plist *list_b)
 				list_a->head = elem;
 			}
 	}
-	ft_putendl_fd("pa", 1);
+	if (param)
+		ft_putendl_fd("pa", 1);
 }
 
-void 	ft_pb(t_plist *list_a, t_plist *list_b)
+void 	ft_pb(t_plist *list_a, t_plist *list_b, int param)
 {
 	t_node	*elem;
 
@@ -57,5 +58,6 @@ void 	ft_pb(t_plist *list_a, t_plist *list_b)
 			list_b->head = elem;
 		}
 	}
-	ft_putendl_fd("pb", 1);
+	if (param)
+		ft_putendl_fd("pb", 1);
 }

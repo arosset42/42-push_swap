@@ -12,7 +12,7 @@
 
 #include "./includes/push_swap.h"
 
-void 	ft_ra(t_plist *list_a)
+void 	ft_ra(t_plist *list_a, int param)
 {
 	t_node	*elem;
 
@@ -24,10 +24,11 @@ void 	ft_ra(t_plist *list_a)
 		list_a->tail->next = elem;
 		list_a->tail = elem;
 	}
-	ft_putendl_fd("ra", 1);
+	if (param)
+		ft_putendl_fd("ra", 1);
 }
 
-void 	ft_rb(t_plist *list_b)
+void 	ft_rb(t_plist *list_b, int param)
 {
 	t_node	*elem;
 
@@ -39,10 +40,11 @@ void 	ft_rb(t_plist *list_b)
 		list_b->tail->next = elem;
 		list_b->tail = elem;
 	}
+	if (param)
 		ft_putendl_fd("rb", 1);
 }
 
-void 	ft_rr(t_plist *list_a, t_plist *list_b)
+void 	ft_rr(t_plist *list_a, t_plist *list_b, int param)
 {
 	t_node *elem;
 
@@ -62,5 +64,6 @@ void 	ft_rr(t_plist *list_a, t_plist *list_b)
 		list_b->tail->next = elem;
 		list_b->tail = elem;
 	}
-	ft_putendl_fd("rr", 1);
+	if (param)
+		ft_putendl_fd("rr", 1);
 }

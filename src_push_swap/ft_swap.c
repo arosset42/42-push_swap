@@ -12,7 +12,7 @@
 
 #include "./includes/push_swap.h"
 
-void 	ft_sa(t_plist *list_a)
+void 	ft_sa(t_plist *list_a, int param)
 {
 	int		tmp;
 
@@ -21,13 +21,17 @@ void 	ft_sa(t_plist *list_a)
 		tmp = list_a->head->value;
 		list_a->head->value = list_a->head->next->value;
 		list_a->head->next->value = tmp;
-		ft_putendl_fd("sa", 1);
+		if (param)
+			ft_putendl_fd("sa", 1);
 	}
 	else
-		ft_putendl_fd("a vide", 2);
+	{
+		if (param)
+			ft_putendl_fd("a vide", 2);
+	}
 }
 
-void	ft_sb(t_plist *list_b)
+void	ft_sb(t_plist *list_b, int param)
 {
 	int		tmp;
 
@@ -36,13 +40,17 @@ void	ft_sb(t_plist *list_b)
 		tmp = list_b->head->value;
 		list_b->head->value = list_b->head->next->value;
 		list_b->head->next->value = tmp;
-		ft_putendl_fd("sb", 1);
+		if (param)
+			ft_putendl_fd("sb", 1);
 	}
 	else
-		ft_putendl_fd("b vide", 2);
+	{
+		if (param)
+			ft_putendl_fd("b vide", 2);
+	}
 }
 
-void	 ft_ss(t_plist *list_a, t_plist *list_b)
+void	 ft_ss(t_plist *list_a, t_plist *list_b, int param)
 {
 	int		tmp;
 
@@ -52,7 +60,7 @@ void	 ft_ss(t_plist *list_a, t_plist *list_b)
 		list_a->head->value = list_a->head->next->value;
 		list_a->head->next->value = tmp;
 	}
-	else
+	else if (param)
 		ft_putendl_fd("a vide", 2);
 	if (list_b->head && list_b->head->next)
 	{
@@ -60,7 +68,8 @@ void	 ft_ss(t_plist *list_a, t_plist *list_b)
 		list_b->head->value = list_b->head->next->value;
 		list_b->head->next->value = tmp;
 	}
-	else
+	else if (param)
 		ft_putendl_fd("b vide", 2);
-	ft_putendl_fd("ss", 1);
+	if (param)
+		ft_putendl_fd("ss", 1);
 }

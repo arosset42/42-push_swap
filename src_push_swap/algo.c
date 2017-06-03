@@ -41,14 +41,14 @@ void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
 		while (pivot != list_a->head->value)
 		{
 			if (list_a->head->value > pivot)
-				ft_pb(list_a, list_b);
+				ft_pb(list_a, list_b, 0);
 			else
-				ft_ra(list_a);
+				ft_ra(list_a, 0);
 				// sleep(2);
-				ft_putendl("\n=== list_b ===");
-				ft_print_pile(list_b);
-				ft_putendl("==== list_a ===");
-				ft_print_pile(list_a);
+				// ft_putendl("\n=== list_b ===");
+				// ft_print_pile(list_b);
+				// ft_putendl("==== list_a ===");
+				// ft_print_pile(list_a);
 		}
 		ft_putendl("fin algo");
 		break;
@@ -58,5 +58,4 @@ void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
 	ft_putendl("==== list_a ===");
 	ft_print_pile(list_a);
 	ft_putendl("trie ou pas");
-	ft_printf("%S\n", "࠘");
 }

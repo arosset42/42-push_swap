@@ -54,20 +54,20 @@ int 				ft_verif_list(t_node *head_l, t_node *next_l);
 
 void    			ft_print_pile(t_plist *lst);
 
-void 				ft_sa(t_plist *list_a);
-void				ft_sb(t_plist *list_b);
-void				ft_ss(t_plist *list_a, t_plist *list_b);
+void 				ft_sa(t_plist *list_a, int param);
+void				ft_sb(t_plist *list_b, int param);
+void				ft_ss(t_plist *list_a, t_plist *list_b, int param);
 
-void 				ft_pa(t_plist *list_a, t_plist *list_b);
-void 				ft_pb(t_plist *list_a, t_plist *list_b);
+void 				ft_pa(t_plist *list_a, t_plist *list_b, int param);
+void 				ft_pb(t_plist *list_a, t_plist *list_b, int param);
 
-void 				ft_ra(t_plist *list_a);
-void 				ft_rb(t_plist *list_b);
-void 				ft_rr(t_plist *list_a, t_plist *list_b);
+void 				ft_ra(t_plist *list_a, int param);
+void 				ft_rb(t_plist *list_b, int param);
+void 				ft_rr(t_plist *list_a, t_plist *list_b, int param);
 
-void 				ft_rra(t_plist *list_a);
-void 				ft_rrb(t_plist *list_b);
-void 				ft_rrr(t_plist *list_a, t_plist *list_b);
+void 				ft_rra(t_plist *list_a, int param);
+void 				ft_rrb(t_plist *list_b, int param);
+void 				ft_rrr(t_plist *list_a, t_plist *list_b, int param);
 
 int					ft_chr_min(t_node *list);
 int 				ft_chr_max(t_node *list);
