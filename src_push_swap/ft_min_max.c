@@ -50,7 +50,7 @@ int		chr_pivot(t_node *list, int min , int max)
 
 	i = 1;
 	save = list;
-	ft_printf("chr pivot\n");
+	//ft_printf("chr pivot\n");
 	ret = (max - min) / 2;
 	while (ret != list->value)
 	{
@@ -62,6 +62,6 @@ int		chr_pivot(t_node *list, int min , int max)
 			list = save;
 		}
 	}
-	ft_printf("ret = %d\n", ret);
+	//ft_printf("ret = %d\n", ret);
 	return (ret);
 }

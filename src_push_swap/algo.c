@@ -19,8 +19,8 @@ void 	main_algo(t_plist *list_a, t_plist *list_b)
 
 	min = ft_chr_min(list_a->head);
 	max = ft_chr_max(list_a->head);
-	ft_printf("min = %d max = %d\nargc = %d\n", min, max, list_a->argc);
-	if (list_a->argc <= 50)
+//	ft_printf("min = %d max = %d\nargc = %d\n", min, max, list_a->argc);
+	if (list_a->argc <= 10000)
 	{
 		ft_algo_one(list_a, list_b, min, max);
 	}
@@ -34,28 +34,22 @@ void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
 	int		pivot;
 
 	pivot = chr_pivot(list_a->head, min, max);
-	ft_printf("pivot = %d\n", pivot);
+//	ft_printf("pivot = %d\n", pivot);
 	stop = 1;
-	while ((!ft_verif_list(list_a->head, list_a->head->next) && stop) || list_a->head)
+	while (!ft_verif_list(list_a->head, list_a->head->next) && list_b)
 	{
-		while (pivot != list_a->head->value)
-		{
-			if (list_a->head->value > pivot)
-				ft_pb(list_a, list_b, 0);
-			else
-				ft_ra(list_a, 0);
-				// sleep(2);
-				// ft_putendl("\n=== list_b ===");
-				// ft_print_pile(list_b);
-				// ft_putendl("==== list_a ===");
-				// ft_print_pile(list_a);
-		}
-		ft_putendl("fin algo");
-		break;
+		if (list_a->head->next->value == min || !(list_a->head->value > list_a->head->next->value))
+			ft_ra(list_a, 1);
+		else
+			ft_sa(list_a, 1);
+		// ft_putendl("\nListA");
+		// ft_print_pile(list_a);
+		// ft_putendl("\n\n");
+		// sleep(1);
 	}
-	ft_putendl("\n\n\n=== list_b ===");
-	ft_print_pile(list_b);
-	ft_putendl("==== list_a ===");
-	ft_print_pile(list_a);
-	ft_putendl("trie ou pas");
+	// ft_putendl("\n\n\n=== list_b ===");
+	// ft_print_pile(list_b);
+	// ft_putendl("==== list_a ===");
+	// ft_print_pile(list_a);
+	// ft_putendl("trie ou pas");
 }
