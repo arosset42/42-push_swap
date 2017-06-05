@@ -20,12 +20,15 @@ void 	main_algo(t_plist *list_a, t_plist *list_b)
 	min = ft_chr_min(list_a->head);
 	max = ft_chr_max(list_a->head);
 //	ft_printf("min = %d max = %d\nargc = %d\n", min, max, list_a->argc);
-	if (list_a->argc <= 10000)
+	if (list_a->argc <= 1)
 	{
-		ft_algo_one(list_a, list_b, min, max);
+		ft_algo_bubble(list_a, min);
 	}
 	else
+	{
 		ft_putstr("plus de 50 et jai pas de 2eme algo\n");
+		ft_algo_one(list_a, list_b, min, max);
+	}
 }
 
 void 	ft_algo_one(t_plist *list_a, t_plist *list_b, int min, int max)
