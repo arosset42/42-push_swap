@@ -29,11 +29,13 @@ static int		min_position(t_stack *stack)
 	nb_element = nb_elem_stack(stack);
 	cursor = FIRST(stack);
 	position = 0;
+	// ft_printf("min = %d, nb_elem= %d, cursor = %d, pos = %d\n", min, nb_element, CURR_VAL(cursor), position);
 	while (CURR_VAL(cursor) != min)
 	{
 		position++;
 		cursor = cursor->next;
 	}
+	// ft_printf("nb_elem %d , pos = %d, cursor %d\n", nb_element, position, CURR_VAL(cursor));
 	if (nb_element - position - 2 < nb_element - (nb_element - position))
 		return ((position - nb_element) - 1);
 	return (position);
@@ -66,6 +68,7 @@ void			select_sort(t_ps *ps)
 	while (node_a->next)
 	{
 		position = min_position(ps->stack_a);
+		// ft_printf("min = %d\n", position);
 		select_node(position, ps);
 		OP(PB);
 		node_a = FIRST(ps->stack_a);
