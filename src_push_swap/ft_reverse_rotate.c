@@ -28,6 +28,8 @@ void 	ft_rra(t_plist *list_a, int param)
 	}
 	if (param)
 		ft_putendl_fd("rra", 1);
+	else
+		list_a->coup++;
 }
 
 void 	ft_rrb(t_plist *list_b, int param)

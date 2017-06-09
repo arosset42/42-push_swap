@@ -34,10 +34,9 @@ void 	ft_pa(t_plist *list_a, t_plist *list_b, int param)
 			}
 	}
 	if (param)
-	{
-		// ft_print_d_pile(list_a, list_b);
 		ft_putendl_fd("pa", 1);
-	}
+	else
+		list_a->coup++;
 }
 
 void 	ft_pb(t_plist *list_a, t_plist *list_b, int param)
@@ -63,4 +62,6 @@ void 	ft_pb(t_plist *list_a, t_plist *list_b, int param)
 	}
 	if (param)
 		ft_putendl_fd("pb", 1);
+	else
+		list_a->coup++;
 }

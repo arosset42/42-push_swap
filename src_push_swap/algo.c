@@ -75,6 +75,8 @@ void 	ft_algo_one(t_plist *l_a, t_plist *l_b)
 			ft_pb(l_a, l_b, 1);
 			waves_a = compt_elem(l_a);
 			waves_b = compt_elem_reverse(l_b);
+			// ft_printf("waves_a = %d waves_b = %d\n", waves_a, waves_b);
+			// ft_print_pile(l_a);
 		}
 
 		while (l_b->head)
@@ -101,5 +103,6 @@ void 	ft_algo_one(t_plist *l_a, t_plist *l_b)
 		waves_a = compt_elem(l_a);
 		waves_b = compt_elem_reverse(l_b);
 	}
+	ft_printf("coup = %d\n", l_a->coup);
 	// ft_print_pile(l_a);
 }
