@@ -53,6 +53,7 @@ t_plist				*ft_plistadd(t_plist *lst, int value);
 int 				ft_verif_list(t_node *head_l, t_node *next_l);
 
 void    			ft_print_pile(t_plist *lst);
+void 				ft_print_d_pile(t_plist *lst_a, t_plist *lst_b);
 
 void 				ft_sa(t_plist *list_a, int param);
 void				ft_sb(t_plist *list_b, int param);
@@ -73,6 +74,7 @@ int					ft_chr_min(t_node *list);
 int 				ft_chr_max(t_node *list);
 int					chr_pivot(t_node *list, int min , int max);
 
-void 				ft_algo_one(t_plist *list_a, t_plist *list_b);
+void 				ft_algo_one(t_plist *l_a, t_plist *l_b);
 void				ft_algo_bubble(t_plist *l_a, int min);
+void 				ft_algo_select_sort(t_plist *list_a, t_plist *list_b);
 #endif

@@ -27,21 +27,79 @@ void 	main_algo(t_plist *list_a, t_plist *list_b)
 	}
 }
 
-void 	ft_algo_one(t_plist *list_a, t_plist *list_b)
+static int		compt_elem_reverse(t_plist *node)
 {
-	int		min;
+	t_node 		*cursor;
+	int			i;
 
-	while (list_a->head->next)
+	i = 0;
+	if (!(cursor = node->head))
+		return (i);
+	while (cursor->next)
 	{
-		min = ft_chr_min(list_a->head);
-		while (list_a->head->value != min)
-			ft_rra(list_a, 1);
-		ft_pb(list_a, list_b, 1);
+		if (cursor->value < cursor->next->value)
+			i++;
+		cursor = cursor->next;
 	}
-	while (list_b->head)
-	{
-		ft_pa(list_a, list_b, 1);
-	}
-	ft_print_pile(list_a);
+	return (i);
+}
 
+static	int		compt_elem(t_plist *node)
+{
+	int		i;
+	t_node	*cursor;
+
+	cursor = node->head;
+	i = 0;
+	while (cursor->next)
+	{
+		if (cursor->value > cursor->next->value)
+			i++;
+		cursor = cursor->next;
+	}
+	return (i);
+}
+
+void 	ft_algo_one(t_plist *l_a, t_plist *l_b)
+{
+	int		waves_a;
+	int		waves_b;
+
+	waves_b = 0;
+	while (!ft_verif_list(l_a->head, l_a->head->next))
+	{
+		waves_a = compt_elem(l_a);
+		// ft_printf("waves_a = %d waves_b = %d\n", waves_a, waves_b);
+		while (waves_a + 1 > waves_b)
+		{
+			ft_pb(l_a, l_b, 1);
+			waves_a = compt_elem(l_a);
+			waves_b = compt_elem_reverse(l_b);
+		}
+
+		while (l_b->head)
+		{
+			// ft_printf("test\n");
+			if (l_b->head->value < l_a->head->value && l_b->head->value > l_a->tail->value)
+			{
+				ft_pa(l_a, l_b, 1);
+			}
+			else if ((l_b->head->value < l_a->head->value && l_a->head->value < l_a->tail->value) || !l_a->head->next->value)
+			{
+				ft_pa(l_a, l_b, 1);
+			}
+			else if (l_b->head->value > l_a->head->value && l_a->head->value < l_a->tail->value && l_b->head->value > l_a->tail->value)
+			{
+				ft_pa(l_a, l_b, 1);
+			}
+			else
+				ft_rra(l_a, 1);
+
+		}
+		while (l_a->head->value > l_a->tail->value)
+			ft_rra(l_a, 1);
+		waves_a = compt_elem(l_a);
+		waves_b = compt_elem_reverse(l_b);
+	}
+	// ft_print_pile(l_a);
 }

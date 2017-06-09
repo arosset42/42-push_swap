@@ -21,7 +21,7 @@ LIB_LINK		=
 
 SRC				=	push_swap.c ft_list.c error.c ft_check_argv.c ft_atol.c \
 					algo.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c \
-					ft_min_max.c algo_bubble.c 
+					ft_min_max.c algo_bubble.c algo_select_sort.c  
 
 HEADER 			=	includes/push_swap.h
 

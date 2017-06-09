@@ -41,3 +41,21 @@ void    ft_print_pile(t_plist *lst)
 		}
 	}
 }
+
+void 	ft_print_d_pile(t_plist *lst_a, t_plist *lst_b)
+{
+	t_node *a;
+	t_node	*b;
+
+	if (lst_a || lst_b)
+	{
+		a = lst_a->head;
+		b = lst_b->head;
+		while (a || b)
+		{
+			ft_printf("Value A = %d\t\tValue B = %d\n", a->value, b->value);
+			a = a->next;
+			b = b->next;
+		}
+	}
+}
