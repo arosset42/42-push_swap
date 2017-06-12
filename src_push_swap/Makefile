@@ -54,7 +54,6 @@ $(LIB):
 %.o: %.c
 	@$(CC) $(FLAGS) -o $@ -c $<
 	@echo "Obj" [ $< ] $(OK)
-	@echo "\n"
 
 clean :
 	@make -C $(LIB_PATH) clean

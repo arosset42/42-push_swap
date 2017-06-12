@@ -6,13 +6,31 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:47:59 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/10 14:39:24 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/12 22:40:57 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int		main(int argc, char **argv)
+static	void	ft_free_struct(t_plist *lst_a, t_plist *lst_b)
+{
+	t_node *tmp;
+	t_node *elem;
+
+	tmp = lst_a->head;
+	elem = lst_a->head->next;
+	while (elem)
+	{
+		free(tmp);
+		tmp = elem;
+		elem = elem->next;
+	}
+	free(tmp);
+	free(lst_a);
+	free(lst_b);
+}
+
+int				main(int argc, char **argv)
 {
 	char	**tab;
 	int		nbelem;
@@ -33,7 +51,7 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-void	ft_push_swap_arg(int nbelem, char **tab)
+void			ft_push_swap_arg(int nbelem, char **tab)
 {
 	t_plist		*list_a;
 	t_plist		*list_b;
@@ -56,9 +74,10 @@ void	ft_push_swap_arg(int nbelem, char **tab)
 		}
 	}
 	main_algo(list_a, list_b);
+	ft_free_struct(list_a, list_b);
 }
 
-void	ft_push_swap(int argc, char **argv)
+void			ft_push_swap(int argc, char **argv)
 {
 	t_plist		*list_a;
 	t_plist		*list_b;
@@ -80,4 +99,5 @@ void	ft_push_swap(int argc, char **argv)
 		}
 	}
 	main_algo(list_a, list_b);
+	ft_free_struct(list_a, list_b);
 }

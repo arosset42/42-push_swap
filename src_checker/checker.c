@@ -6,13 +6,31 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 15:51:38 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/03 15:52:00 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/12 22:37:13 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static void 	ft_checker_arg(int nbelem, char **tab)
+static	void	ft_free_struct(t_plist *lst_a, t_plist *lst_b)
+{
+	t_node *tmp;
+	t_node *elem;
+
+	tmp = lst_a->head;
+	elem = lst_a->head->next;
+	while (elem)
+	{
+		free(tmp);
+		tmp = elem;
+		elem = elem->next;
+	}
+	free(tmp);
+	free(lst_a);
+	free(lst_b);
+}
+
+static void		ft_checker_arg(int nbelem, char **tab)
 {
 	t_plist		*list_a;
 	t_plist		*list_b;
@@ -35,9 +53,10 @@ static void 	ft_checker_arg(int nbelem, char **tab)
 		}
 	}
 	ft_start_verif(list_a, list_b);
+	ft_free_struct(list_a, list_b);
 }
 
-static void 	ft_checker(int argc, char **argv)
+static void		ft_checker(int argc, char **argv)
 {
 	t_plist		*list_a;
 	t_plist		*list_b;
@@ -59,9 +78,10 @@ static void 	ft_checker(int argc, char **argv)
 		}
 	}
 	ft_start_verif(list_a, list_b);
+	ft_free_struct(list_a, list_b);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	char	**tab;
 	int		nbelem;

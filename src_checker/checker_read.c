@@ -6,13 +6,14 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/12 20:49:08 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/12 20:49:22 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/12 22:38:40 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static void 	ft_exect_operator(t_plist *l_a, t_plist *l_b, char *line, int param)
+static void		ft_exect_operator(t_plist *l_a, t_plist *l_b,
+					char *line, int param)
 {
 	if (ft_strcmp(line, "sa") == 0)
 		ft_sa(l_a, param);
@@ -40,7 +41,7 @@ static void 	ft_exect_operator(t_plist *l_a, t_plist *l_b, char *line, int param
 		ft_putendl_fd("Error", 2);
 }
 
-void 	ft_start_verif(t_plist *l_a, t_plist *l_b)
+void			ft_start_verif(t_plist *l_a, t_plist *l_b)
 {
 	int		ret;
 	char	*line;
@@ -58,7 +59,7 @@ void 	ft_start_verif(t_plist *l_a, t_plist *l_b)
 		ft_putendl("PILE B");
 		ft_print_pile(l_b);
 		ft_putendl("");
-		free (line);
+		free(line);
 		sleep(1);
 	}
 	ft_exect_operator(l_a, l_b, line, 0);

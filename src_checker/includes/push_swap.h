@@ -6,7 +6,7 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:50:02 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/10 14:42:55 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/12 22:39:02 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ void					ft_algo_select_sort(t_plist *list_a, t_plist *list_b);
 /*
 ** FONCTION CHECKER
 */
-void 					ft_start_verif(t_plist *l_a, t_plist *l_b);
+void					ft_start_verif(t_plist *l_a, t_plist *l_b);
 #endif
