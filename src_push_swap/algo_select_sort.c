@@ -6,13 +6,13 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 19:11:52 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/09 19:12:09 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/10 14:39:36 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-void 	ft_algo_select_sort(t_plist *list_a, t_plist *list_b)
+void	ft_algo_select_sort(t_plist *list_a, t_plist *list_b)
 {
 	int		min;
 

@@ -12,14 +12,14 @@
 
 #include "./includes/push_swap.h"
 
-void	ft_algo_bubble(t_plist *l_a, int min)
+void	ft_algo_bubble(t_plist *l_a, int min, int param)
 {
 	while (!ft_verif_list(l_a->head, l_a->head->next))
 	{
 		if (l_a->head->next->value == min ||
 				!(l_a->head->value > l_a->head->next->value))
-			ft_ra(l_a, 1);
+			ft_ra(l_a, param);
 		else
-			ft_sa(l_a, 1);
+			ft_sa(l_a, param);
 	}
 }

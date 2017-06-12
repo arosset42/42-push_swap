@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/17 13:47:59 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/10 14:39:24 by arosset          ###   ########.fr       */
+/*   Created: 2017/06/03 15:51:38 by arosset           #+#    #+#             */
+/*   Updated: 2017/06/03 15:52:00 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "./includes/push_swap.h"
 
-int		main(int argc, char **argv)
-{
-	char	**tab;
-	int		nbelem;
-
-	if (argc != 1)
-	{
-		if (argc == 2)
-		{
-			tab = ft_strsplit(argv[1], ' ');
-			nbelem = ft_nbelem(tab);
-			ft_push_swap_arg(nbelem, tab);
-		}
-		else
-			ft_push_swap(argc, argv);
-	}
-	else
-		ft_error(1);
-	return (0);
-}
-
-void	ft_push_swap_arg(int nbelem, char **tab)
+static void 	ft_checker_arg(int nbelem, char **tab)
 {
 	t_plist		*list_a;
 	t_plist		*list_b;
@@ -55,10 +34,10 @@ void	ft_push_swap_arg(int nbelem, char **tab)
 			i++;
 		}
 	}
-	main_algo(list_a, list_b);
+	ft_start_verif(list_a, list_b);
 }
 
-void	ft_push_swap(int argc, char **argv)
+static void 	ft_checker(int argc, char **argv)
 {
 	t_plist		*list_a;
 	t_plist		*list_b;
@@ -79,5 +58,26 @@ void	ft_push_swap(int argc, char **argv)
 			list_a = ft_plistadd(list_a, (int)nb);
 		}
 	}
-	main_algo(list_a, list_b);
+	ft_start_verif(list_a, list_b);
+}
+
+int		main(int argc, char **argv)
+{
+	char	**tab;
+	int		nbelem;
+
+	if (argc != 1)
+	{
+		if (argc == 2)
+		{
+			tab = ft_strsplit(argv[1], ' ');
+			nbelem = ft_nbelem(tab);
+			ft_checker_arg(nbelem, tab);
+		}
+		else
+			ft_checker(argc, argv);
+	}
+	else
+		ft_error(1);
+	return (0);
 }

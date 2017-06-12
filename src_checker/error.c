@@ -34,6 +34,8 @@ void	ft_print_pile(t_plist *lst)
 	if (lst)
 	{
 		elem = lst->head;
+		if (lst->head == NULL)
+			ft_putendl("vide");
 		while (elem)
 		{
 			ft_printf("value = %d\n", elem->value);

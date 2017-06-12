@@ -6,7 +6,7 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 13:36:54 by arosset           #+#    #+#             */
-/*   Updated: 2017/05/26 13:37:10 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/10 14:29:14 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_chr_min(t_node *list)
 	return (min);
 }
 
-int 	ft_chr_max(t_node *list)
+int		ft_chr_max(t_node *list)
 {
 	int		max;
 
@@ -42,15 +42,14 @@ int 	ft_chr_max(t_node *list)
 	return (max);
 }
 
-int		chr_pivot(t_node *list, int min , int max)
+int		chr_pivot(t_node *list, int min, int max)
 {
 	int		i;
-	int 	ret;
+	int		ret;
 	t_node	*save;
 
 	i = 1;
 	save = list;
-	//ft_printf("chr pivot\n");
 	ret = (max - min) / 2;
 	while (ret != list->value)
 	{
@@ -62,6 +61,5 @@ int		chr_pivot(t_node *list, int min , int max)
 			list = save;
 		}
 	}
-	//ft_printf("ret = %d\n", ret);
 	return (ret);
 }
