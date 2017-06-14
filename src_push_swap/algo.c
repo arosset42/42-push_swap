@@ -17,14 +17,12 @@ void	main_algo(t_plist *list_a, t_plist *list_b)
 	int		min;
 
 	min = ft_chr_min(list_a->head);
-	if (list_a->size_pile <= 5)
+	if (list_a->size_pile <= 4)
 	{
 		ft_algo_bubble(list_a, 1);
-		ft_printf("coup A %d, coup B %d\n", list_a->coup, list_b->coup);
 	}
 	else
 	{
 		ft_algo_merge(list_a, list_b, 1);
-		ft_printf("coup A %d, coup B %d\n", list_a->coup, list_b->coup);
 	}
 }

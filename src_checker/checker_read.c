@@ -38,7 +38,11 @@ static void		ft_exect_operator(t_plist *l_a, t_plist *l_b,
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rrr(l_a, l_b, param);
 	else
-		ft_putendl_fd("Error", 2);
+	{
+		// ft_printf("line  >%s<\n", line);
+		ft_putendl_fd("Error gnl", 2);
+	}
+	return ;
 }
 
 void			ft_start_verif(t_plist *l_a, t_plist *l_b)
@@ -46,28 +50,14 @@ void			ft_start_verif(t_plist *l_a, t_plist *l_b)
 	int		ret;
 	char	*line;
 
-	ft_putendl("PILE A Init");
-	ft_print_pile(l_a);
-	ft_putendl("PILE B Init");
-	ft_print_pile(l_b);
-	ft_putendl("");
-	while ((ret = get_next_line(0, &line) > 0))
+	while ((ret = get_next_line(0, &line) != 0))
 	{
 		ft_exect_operator(l_a, l_b, line, 0);
-		ft_putendl("PILE A");
-		ft_print_pile(l_a);
-		ft_putendl("PILE B");
-		ft_print_pile(l_b);
-		ft_putendl("");
 		free(line);
-		sleep(1);
 	}
-	ft_exect_operator(l_a, l_b, line, 0);
-	ft_putendl("PILE A Final");
-	ft_print_pile(l_a);
-	ft_putendl("PILE B Final");
-	ft_print_pile(l_b);
-	ft_putendl("");
+	// ft_printf("1 > %d, 2 > %d\n", l_a->head->value, l_a->tail->value);
+	ft_exect_operator(l_a, l_b, line, 1);
+	ft_printf("1 > %d, 2 > %d\n", l_a->head->value, l_a->tail->value);
 	if (ft_verif_list(l_a->head, l_a->head->next) == 1)
 		ft_putendl("OK");
 	else

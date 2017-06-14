@@ -18,6 +18,7 @@ void	ft_ra(t_plist *list_a, int param)
 
 	if (list_a->head && list_a->head->next)
 	{
+		ft_putendl("tst");
 		elem = list_a->head;
 		list_a->head = list_a->head->next;
 		elem->next = NULL;

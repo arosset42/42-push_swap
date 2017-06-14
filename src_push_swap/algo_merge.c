@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   des_trucs.c                                        :+:      :+:    :+:   */
+/*   algo_merge.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,6 +20,7 @@ static int		compt_elem_reverse(t_plist *node)
 	i = 0;
 	if (!(cursor = node->head))
 		return (i);
+	i++;
 	while (cursor->next)
 	{
 		if (cursor->value < cursor->next->value)
@@ -34,8 +35,8 @@ static	int		compt_elem(t_plist *node)
 	int		i;
 	t_node	*cursor;
 
-	cursor = node->head;
 	i = 0;
+	cursor = node->head;
 	while (cursor->next)
 	{
 		if (cursor->value > cursor->next->value)
@@ -50,15 +51,14 @@ static void		ft_merge_list(t_plist *l_a, t_plist *l_b, int param)
 	while (l_b->head)
 	{
 		if (l_b->head->value < l_a->head->value &&
-					l_b->head->value > l_a->tail->value)
+				l_b->head->value > l_a->tail->value)
 			ft_pa(l_a, l_b, param);
 		else if ((l_b->head->value < l_a->head->value &&
-					l_a->head->value < l_a->tail->value)
-					|| !l_a->head->next->value)
+				l_a->head->value < l_a->tail->value) || !l_a->head->next)
 			ft_pa(l_a, l_b, param);
 		else if (l_b->head->value > l_a->head->value &&
-					l_a->head->value < l_a->tail->value &&
-					l_b->head->value > l_a->tail->value)
+				l_a->head->value < l_a->tail->value &&
+				l_b->head->value > l_a->tail->value)
 			ft_pa(l_a, l_b, param);
 		else
 			ft_rra(l_a, param);
