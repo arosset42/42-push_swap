@@ -12,9 +12,20 @@
 
 #include "./includes/push_swap.h"
 
-void	ft_algo_bubble(t_plist *l_a, int min, int param)
+static int		limit_op_bb(t_plist *list)
 {
-	while (!ft_verif_list(l_a->head, l_a->head->next))
+	if (list->coup < OP_MAX)
+		return (1);
+	else
+		return (-1);
+}
+
+void			ft_algo_bubble(t_plist *l_a, int param)
+{
+	int		min;
+
+	min = ft_chr_min(l_a->head);
+	while (!ft_verif_list(l_a->head, l_a->head->next) && limit_op_bb(l_a) != -1)
 	{
 		if (l_a->head->next->value == min ||
 				!(l_a->head->value > l_a->head->next->value))

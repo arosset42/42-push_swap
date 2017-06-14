@@ -20,8 +20,8 @@ t_plist		*ft_plistnew(void)
 		return (NULL);
 	if (new != NULL)
 	{
-		new->argc = 0;
 		new->coup = 0;
+		new->size_pile = 0;
 		new->head = NULL;
 		new->tail = NULL;
 	}
@@ -49,7 +49,7 @@ t_plist		*ft_plistadd(t_plist *lst, int value)
 				lst->tail = new;
 			}
 		}
-		lst->argc++;
+		lst->size_pile++;
 	}
 	return (lst);
 }

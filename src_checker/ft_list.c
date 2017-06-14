@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "./includes/checker.h"
 
 t_plist		*ft_plistnew(void)
 {
@@ -20,8 +20,6 @@ t_plist		*ft_plistnew(void)
 		return (NULL);
 	if (new != NULL)
 	{
-		new->argc = 0;
-		new->coup = 0;
 		new->head = NULL;
 		new->tail = NULL;
 	}
@@ -49,7 +47,6 @@ t_plist		*ft_plistadd(t_plist *lst, int value)
 				lst->tail = new;
 			}
 		}
-		lst->argc++;
 	}
 	return (lst);
 }

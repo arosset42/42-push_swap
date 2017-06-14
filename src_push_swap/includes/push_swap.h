@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include "../../libft/includes/libft.h"
 
+# define OP_MAX 10000
+
 typedef struct			s_node
 {
 	int					value;
@@ -26,14 +28,13 @@ typedef struct			s_node
 
 typedef struct			s_plist
 {
-	int					argc;
 	int					coup;
+	int					size_pile;
 	struct s_node		*head;
 	struct s_node		*tail;
 }						t_plist;
 
 void					ft_error(int error);
-int						ft_nbelem(char **tab);
 
 int						ft_check(char *str);
 int						ft_check_digit(char *str);
@@ -41,6 +42,7 @@ int						ft_check_min_max(char *str);
 void					ft_check_double(t_plist *lst, int value);
 
 long long int			ft_atol(const char *str);
+int						ft_nbelem(char **tab);
 
 void					ft_push_swap(int argc, char **argv);
 void					ft_push_swap_arg(int nbelem, char **tab);
@@ -50,9 +52,6 @@ void					main_algo(t_plist *list_a, t_plist *list_b);
 t_plist					*ft_plistnew(void);
 t_plist					*ft_plistadd(t_plist *lst, int value);
 int						ft_verif_list(t_node *head_l, t_node *next_l);
-
-void					ft_print_pile(t_plist *lst);
-void					ft_print_d_pile(t_plist *lst_a, t_plist *lst_b);
 
 void					ft_sa(t_plist *list_a, int param);
 void					ft_sb(t_plist *list_b, int param);
@@ -74,10 +73,8 @@ int						ft_chr_max(t_node *list);
 int						chr_pivot(t_node *list, int min, int max);
 
 void					ft_algo_merge(t_plist *l_a, t_plist *l_b, int param);
-void					ft_algo_bubble(t_plist *l_a, int min, int param);
-void					ft_algo_select_sort(t_plist *list_a, t_plist *list_b);
-/*
-** FONCTION CHECKER
-*/
-void					ft_start_verif(t_plist *l_a, t_plist *l_b);
+void					ft_algo_bubble(t_plist *l_a, int param);
+void					ft_algo_select_sort(t_plist *list_a, t_plist *list_b,\
+							int param);
+
 #endif

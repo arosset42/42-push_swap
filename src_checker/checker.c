@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "./includes/checker.h"
 
 static	void	ft_free_struct(t_plist *lst_a, t_plist *lst_b)
 {

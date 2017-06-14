@@ -12,7 +12,7 @@
 
 #include "./includes/push_swap.h"
 
-void	ft_algo_select_sort(t_plist *list_a, t_plist *list_b)
+void	ft_algo_select_sort(t_plist *list_a, t_plist *list_b, int param)
 {
 	int		min;
 
@@ -20,12 +20,11 @@ void	ft_algo_select_sort(t_plist *list_a, t_plist *list_b)
 	{
 		min = ft_chr_min(list_a->head);
 		while (list_a->head->value != min)
-			ft_rra(list_a, 1);
-		ft_pb(list_a, list_b, 1);
+			ft_rra(list_a, param);
+		ft_pb(list_a, list_b, param);
 	}
 	while (list_b->head)
 	{
-		ft_pa(list_a, list_b, 1);
+		ft_pa(list_a, list_b, param);
 	}
-	ft_print_pile(list_a);
 }

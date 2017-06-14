@@ -24,11 +24,7 @@ void	ft_sa(t_plist *list_a, int param)
 		if (param)
 			ft_putendl_fd("sa", 1);
 	}
-	else
-	{
-		if (param)
-			ft_putendl_fd("a vide", 2);
-	}
+	list_a->coup++;
 }
 
 void	ft_sb(t_plist *list_b, int param)
@@ -43,11 +39,7 @@ void	ft_sb(t_plist *list_b, int param)
 		if (param)
 			ft_putendl_fd("sb", 1);
 	}
-	else
-	{
-		if (param)
-			ft_putendl_fd("b vide", 2);
-	}
+	list_b->coup++;
 }
 
 void	ft_ss(t_plist *list_a, t_plist *list_b, int param)
@@ -60,16 +52,13 @@ void	ft_ss(t_plist *list_a, t_plist *list_b, int param)
 		list_a->head->value = list_a->head->next->value;
 		list_a->head->next->value = tmp;
 	}
-	else if (param)
-		ft_putendl_fd("a vide", 2);
 	if (list_b->head && list_b->head->next)
 	{
 		tmp = list_b->head->value;
 		list_b->head->value = list_b->head->next->value;
 		list_b->head->next->value = tmp;
 	}
-	else if (param)
-		ft_putendl_fd("b vide", 2);
 	if (param)
 		ft_putendl_fd("ss", 1);
+	list_a->coup++;
 }

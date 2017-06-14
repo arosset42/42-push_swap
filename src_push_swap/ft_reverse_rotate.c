@@ -26,10 +26,9 @@ void	ft_rra(t_plist *list_a, int param)
 		elem->next = NULL;
 		list_a->tail = elem;
 	}
+	list_a->coup++;
 	if (param)
 		ft_putendl_fd("rra", 1);
-	else
-		list_a->coup++;
 }
 
 void	ft_rrb(t_plist *list_b, int param)
@@ -46,6 +45,7 @@ void	ft_rrb(t_plist *list_b, int param)
 		elem->next = NULL;
 		list_b->tail = elem;
 	}
+	list_b->coup++;
 	if (param)
 		ft_putendl_fd("rrb", 1);
 }
@@ -74,6 +74,7 @@ void	ft_rrr(t_plist *list_a, t_plist *list_b, int param)
 		elem->next = NULL;
 		list_b->tail = elem;
 	}
+	list_a->coup++;
 	if (param)
 		ft_putendl_fd("rrr", 1);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "includes/checker.h"
 
 long long int	ft_atol(const char *str)
 {

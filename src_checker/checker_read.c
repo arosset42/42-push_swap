@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "./includes/checker.h"
 
 static void		ft_exect_operator(t_plist *l_a, t_plist *l_b,
 					char *line, int param)

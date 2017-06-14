@@ -27,21 +27,6 @@ void	ft_error(int error)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_print_pile(t_plist *lst)
-{
-	t_node	*elem;
-
-	if (lst)
-	{
-		elem = lst->head;
-		while (elem)
-		{
-			ft_printf("value = %d\n", elem->value);
-			elem = elem->next;
-		}
-	}
-}
-
 int		ft_nbelem(char **tab)
 {
 	int		i;
