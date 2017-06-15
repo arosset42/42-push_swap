@@ -12,108 +12,115 @@
 
 #include "./includes/libft.h"
 
-static void		ft_lstaddback(t_list **alst, t_list *new)
+char	*ft_strleeks(char **phrase, char **s)
 {
-	t_list	*tmp;
-
-	tmp = *alst;
-	if (*alst == NULL)
-		*alst = new;
-	else
-	{
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
-	}
-}
-
-static t_gnl	*ft_gnl_search(int fd, t_gnl **head)
-{
-	t_gnl	*tmp;
-
-	tmp = *head;
-	while (tmp && tmp->fd != fd)
-		tmp = tmp->next;
-	return (tmp);
-}
-
-static int		ft_gnl_build(int fd, char *buf, t_gnl **head)
-{
-	t_gnl	*elem;
 	char	*str;
 
-	elem = ft_gnl_search(fd, head);
-	if (elem == NULL)
-	{
-		if (!(elem = (t_gnl *)ft_lstnew((void *)buf, (ft_strlen(buf) + 1))))
-			return (-1);
-		elem->fd = fd;
-		ft_lstaddback((t_list **)head, (t_list *)elem);
-	}
-	else
-	{
-		if (!(str = ft_strjoin((char *)elem->content, buf)))
-			return (-1);
-		free(elem->content);
-		elem->content = (void *)str;
-		elem->content_size = ft_strlen(str) + 1;
-	}
-	if (ft_strstr((char *)elem->content, "\n") != NULL)
-		return (1);
-	return (0);
+	str = NULL;
+	str = ft_strjoin(*phrase, *s);
+	ft_strdel(s);
+	ft_strdel(phrase);
+	return (str);
 }
 
-static char		*ft_gnl_trim(int fd, t_gnl **head)
+char	*ft_cuprest(int n, char *phrase, int c)
 {
-	t_gnl	*elem;
-	char	*bgn;
-	char	*end;
-	char	*cpy;
+	int		i;
+	int		j;
+	char	*str;
+	char	*str2;
 
-	elem = ft_gnl_search(fd, head);
-	if (elem->content == NULL)
+	j = -1;
+	str = (char*)malloc(sizeof(char) * c + 1);
+	str2 = malloc(sizeof(char) * (ft_strlen(phrase)));
+	if (!str2 || !str)
 		return (NULL);
-	if ((end = ft_strstr((char *)elem->content, "\n")) != NULL)
+	while (phrase[++j] != '\n')
+		str[j] = phrase[j];
+	str[j] = '\0';
+	i = j;
+	j = -1;
+	while (phrase[++i] != '\0')
+		str2[++j] = phrase[i];
+	str2[++j] = '\0';
+	if (n == 0)
 	{
-		if (!(bgn = ft_strsub((char *)ECON, 0, (ESIZE - ft_strlen(++end) - 2))))
-			return (NULL);
-		cpy = elem->content;
-		elem->content = (ft_strlen(end) == 0) ? NULL : (void *)ft_strdup(end);
-		elem->content_size = ft_strlen(end) + 1;
-		free(cpy);
+		ft_strdel(&str2);
+		return (str);
 	}
-	else
-	{
-		if (!(bgn = ft_strdup((char *)elem->content)))
-			return (NULL);
-		free((*elem).content);
-		elem->content = NULL;
-	}
-	return (bgn);
+	ft_strdel(&str);
+	return (str2);
 }
 
-int				get_next_line(int fd, char **line)
+char	*ft_cpybuf(char *buf1, int fd, int *res)
 {
-	char			buf[BUFF_SIZE + 1];
-	int				ret;
-	int				builder;
-	static t_gnl	*head;
+	int		ret;
+	char	buf[BUFF_SIZE + 1];
+	char	*phrase;
+	char	*s;
 
-	while ((ret = read(fd, buf, BUFF_SIZE)) != 0)
+	s = NULL;
+	phrase = ft_strdup(buf1);
+	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
-		if (ret < 0 || fd < 0 || line == NULL)
-			return (-1);
-		buf[ret] = '\0';
-		if ((builder = ft_gnl_build(fd, buf, &head)) == 1)
-		{
-			*line = ft_gnl_trim(fd, &head);
-			return (1);
-		}
-		if (builder == -1)
-			return (-1);
+		s = ft_strnew(ret);
+		ft_strncpy(s, buf, ret);
+		phrase = ft_strleeks(&phrase, &s);
+		if ((ft_strchr(phrase, '\n')))
+			break ;
 	}
-	if ((builder = ft_gnl_build(fd, buf, &head)) == 1)
-	if ((*line = ft_gnl_trim(fd, &head)) != NULL)
-		return (1);
-	return (0);
+	*res = ret;
+	return (phrase);
+}
+
+void	ft_rest(char **rest, char **phrase)
+{
+	char	*t;
+	int		i;
+
+	t = NULL;
+	i = 0;
+	if ((*rest))
+	{
+		if ((*phrase))
+			*phrase = ft_strleeks(rest, phrase);
+		else
+			*phrase = ft_strdup(*rest);
+	}
+	t = ft_strdup(*phrase);
+	if ((ft_strchr(*phrase, '\n')))
+	{
+		while (t[i] != '\n')
+			i++;
+		*rest = ft_cuprest(1, *phrase, i);
+		ft_strdel(phrase);
+		*phrase = ft_cuprest(0, t, i);
+	}
+	else
+		ft_strdel(rest);
+	ft_strdel(&t);
+}
+
+int		get_next_line(const int fd, char **line)
+{
+	int			res;
+	char		buf[BUFF_SIZE + 1];
+	static char	*rest;
+	char		*phrase;
+	char		*t;
+
+	t = NULL;
+	if (BUFF_SIZE < 0)
+		return (-1);
+	res = read(fd, buf, BUFF_SIZE);
+	if (res == -1 || fd == -1)
+		return (-1);
+	if (res == 0 && (rest == NULL || !ft_strlen(rest)))
+		return (0);
+	buf[res] = '\0';
+	phrase = ft_cpybuf(buf, fd, &res);
+	ft_rest(&rest, &phrase);
+	*line = ft_strdup(phrase);
+	ft_strdel(&phrase);
+	return (1);
 }

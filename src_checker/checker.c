@@ -97,7 +97,5 @@ int				main(int argc, char **argv)
 		else
 			ft_checker(argc, argv);
 	}
-	else
-		ft_error(1);
 	return (0);
 }

@@ -96,8 +96,8 @@ fclean: clean
 	@echo $(DELETE) : $(CH_TARGET)
 	@rm -rf $(PS_TARGET)
 	@echo $(DELETE) : $(PS_TARGET)
-	#@make -C $(LIB_PATH) fclean
-	#@echo $(DELETE_LIB) : Lib
+	@make -C $(LIB_PATH) fclean
+	@echo $(DELETE_LIB) : Lib
 
 re: fclean all
 
