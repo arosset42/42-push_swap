@@ -49,10 +49,10 @@ void			ft_start_verif(t_plist *l_a, t_plist *l_b)
 
 	if (!(ft_verif_list(l_a->head, l_a->head->next) == 1))
 	{
-		while ((ret = get_next_line(0, &line) != 0))
+		while ((ret = get_next_line(0, &line) > 0))
 		{
-			ft_exect_operator(l_a, l_b, line, 1);
-			free(line);
+			ft_exect_operator(l_a, l_b, line, 0);
+			ft_strdel(&line);
 		}
 	}
 	if (ft_verif_list(l_a->head, l_a->head->next) == 1)

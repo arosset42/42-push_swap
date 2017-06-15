@@ -19,6 +19,21 @@
 # include <stdarg.h>
 # define BIGGER(x, y) ((x > y) ? x : y)
 
+typedef struct		s_gl
+{
+	char			*s;
+	int				fd;
+}					t_gl;
+
+typedef struct		s_vark
+{
+	char			*buff;
+	char			*tmp;
+	t_gl			*gnl;
+}					t_vark;
+
+
+
 /*
 **					DEFINE GNL
 */

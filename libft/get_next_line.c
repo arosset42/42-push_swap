@@ -12,115 +12,105 @@
 
 #include "./includes/libft.h"
 
-char	*ft_strleeks(char **phrase, char **s)
+void	ft_lstdelelem(t_list **tab, t_list *del)
 {
-	char	*str;
+	t_list *tmp1;
+	t_list *tmp2;
 
-	str = NULL;
-	str = ft_strjoin(*phrase, *s);
-	ft_strdel(s);
-	ft_strdel(phrase);
-	return (str);
-}
-
-char	*ft_cuprest(int n, char *phrase, int c)
-{
-	int		i;
-	int		j;
-	char	*str;
-	char	*str2;
-
-	j = -1;
-	str = (char*)malloc(sizeof(char) * c + 1);
-	str2 = malloc(sizeof(char) * (ft_strlen(phrase)));
-	if (!str2 || !str)
-		return (NULL);
-	while (phrase[++j] != '\n')
-		str[j] = phrase[j];
-	str[j] = '\0';
-	i = j;
-	j = -1;
-	while (phrase[++i] != '\0')
-		str2[++j] = phrase[i];
-	str2[++j] = '\0';
-	if (n == 0)
+	tmp1 = *tab;
+	tmp2 = tmp1;
+	if (tmp2 == del)
 	{
-		ft_strdel(&str2);
-		return (str);
+		*tab = tmp2->next;
+		ft_strdel((&((t_gl*)tmp2->content)->s));
+		ft_memdel(&(tmp2->content));
+		free(tmp2);
+		return ;
 	}
-	ft_strdel(&str);
-	return (str2);
+	while (tmp1->next && tmp1->next != del)
+		tmp1 = tmp1->next;
+	if (!(tmp1->next))
+		return ;
+	tmp2 = tmp1->next;
+	tmp1->next = tmp2->next;
+	free(tmp2->content);
+	free(tmp2);
 }
 
-char	*ft_cpybuf(char *buf1, int fd, int *res)
+t_list	*isfd(const int fd, t_list **tab)
 {
-	int		ret;
-	char	buf[BUFF_SIZE + 1];
-	char	*phrase;
-	char	*s;
+	t_list	*temp;
+	t_gl	*content;
 
-	s = NULL;
-	phrase = ft_strdup(buf1);
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	temp = *tab;
+	while (temp)
 	{
-		s = ft_strnew(ret);
-		ft_strncpy(s, buf, ret);
-		phrase = ft_strleeks(&phrase, &s);
-		if ((ft_strchr(phrase, '\n')))
+		if (((t_gl*)(temp->content))->fd == fd)
 			break ;
+		temp = temp->next;
 	}
-	*res = ret;
-	return (phrase);
+	if (!temp)
+	{
+		if (!(content = (t_gl *)malloc(sizeof(t_gl))))
+			return (NULL);
+		temp = ft_lstnew(content, sizeof(t_gl ));
+		free(content);
+		ft_lstadd(tab, temp);
+		((t_gl *)(temp->content))->fd = fd;
+		((t_gl *)(temp->content))->s = ft_strnew(0);
+	}
+	return (temp);
 }
 
-void	ft_rest(char **rest, char **phrase)
+int		splitgnl(char **ln, t_list *tp, char *tm, t_list **tab)
 {
-	char	*t;
-	int		i;
+	t_gl *temp;
 
-	t = NULL;
-	i = 0;
-	if ((*rest))
+	temp = (t_gl *)(tp->content);
+	if (!tm && temp->s[0] == '\0')
 	{
-		if ((*phrase))
-			*phrase = ft_strleeks(rest, phrase);
-		else
-			*phrase = ft_strdup(*rest);
+		ft_lstdelelem(tab, tp);
+		free(tm);
+		return (0);
 	}
-	t = ft_strdup(*phrase);
-	if ((ft_strchr(*phrase, '\n')))
+	if (tm)
 	{
-		while (t[i] != '\n')
-			i++;
-		*rest = ft_cuprest(1, *phrase, i);
-		ft_strdel(phrase);
-		*phrase = ft_cuprest(0, t, i);
+		*ln = ft_strsub(temp->s, 0, tm - temp->s);
+		temp->s = ft_strcpy(temp->s, ++tm);
 	}
 	else
-		ft_strdel(rest);
-	ft_strdel(&t);
+	{
+		*ln = ft_strdup(temp->s);
+		temp->s = ft_strdup("\0");
+	}
+	return (1);
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	int			res;
-	char		buf[BUFF_SIZE + 1];
-	static char	*rest;
-	char		*phrase;
-	char		*t;
+	static t_list	*tab = NULL;
+	t_list			*tmp;
+	t_vark			v;
+	int				ret;
 
-	t = NULL;
-	if (BUFF_SIZE < 0)
+	v.tmp = NULL;
+	if (fd < 0 || !line || (read(fd, v.tmp, 0)) == -1 || BUFF_SIZE <= 0)
 		return (-1);
-	res = read(fd, buf, BUFF_SIZE);
-	if (res == -1 || fd == -1)
+	if (!(v.buff = (char *)malloc(BUFF_SIZE + 1)))
 		return (-1);
-	if (res == 0 && (rest == NULL || !ft_strlen(rest)))
-		return (0);
-	buf[res] = '\0';
-	phrase = ft_cpybuf(buf, fd, &res);
-	ft_rest(&rest, &phrase);
-	*line = ft_strdup(phrase);
-	ft_strdel(&phrase);
-	return (1);
+	*line = NULL;
+	ret = 0;
+	tmp = isfd(fd, &tab);
+	v.gnl = (t_gl *)(tmp->content);
+	(v.tmp = ft_strchr((v.gnl)->s, '\n'));
+	while (line && !v.tmp && (ret = read(fd, v.buff, BUFF_SIZE)) > 0)
+	{
+		v.buff[ret] = '\0';
+		if ((v.tmp = ft_strjoin((v.gnl)->s, v.buff)))
+			((v.gnl)->s) ? free((v.gnl)->s) : NULL;
+		(v.gnl)->s = v.tmp;
+		v.tmp = ft_strchr((v.gnl)->s, '\n');
+	}
+	v.buff ? free(v.buff) : NULL;
+	return (ret == (-1) ? -1 : splitgnl(line, tmp, v.tmp, &tab));
 }
