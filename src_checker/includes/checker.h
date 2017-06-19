@@ -29,9 +29,10 @@ typedef struct			s_plist
 	int					size_pile;
 	struct s_node		*head;
 	struct s_node		*tail;
+	int					v;
 }						t_plist;
 
-void					ft_error(int error);
+void					ft_error(void);
 int						ft_nbelem(char **tab);
 
 int						ft_check(char *str);
@@ -46,6 +47,7 @@ t_plist					*ft_plistadd(t_plist *lst, int value);
 int						ft_verif_list(t_node *head_l, t_node *next_l);
 
 void					ft_print_pile(t_plist *lst);
+void 					ft_print_op(t_plist *l_a, t_plist *l_b, char *line, int i);
 
 void					ft_sa(t_plist *list_a, int param);
 void					ft_sb(t_plist *list_b, int param);

@@ -65,7 +65,7 @@ static void		ft_merge_list(t_plist *l_a, t_plist *l_b, int param)
 	}
 }
 
-static	int		limit_op(t_plist *l_a, t_plist *l_b)
+static	int		l_op(t_plist *l_a, t_plist *l_b)
 {
 	if ((l_a->coup + l_b->coup) < OP_MAX)
 		return (1);
@@ -79,7 +79,7 @@ void			ft_algo_merge(t_plist *l_a, t_plist *l_b, int param)
 	int		waves_b;
 
 	waves_b = 0;
-	while (!ft_verif_list(l_a->head, l_a->head->next) && limit_op(l_a, l_b))
+	while (!verif_l(l_a->head, l_a->head->next) && l_op(l_a, l_b) && !l_b->head)
 	{
 		waves_a = compt_elem(l_a);
 		while (waves_a + 1 > waves_b)

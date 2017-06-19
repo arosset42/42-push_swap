@@ -22,6 +22,7 @@ t_plist		*ft_plistnew(void)
 	{
 		new->head = NULL;
 		new->tail = NULL;
+		new->v = 0;
 	}
 	return (new);
 }

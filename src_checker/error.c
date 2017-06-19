@@ -12,13 +12,9 @@
 
 #include "includes/checker.h"
 
-void	ft_error(int error)
+void	ft_error(void)
 {
-	if (error)
-	{
-		//ft_free_struct(t_plist *lst_a, t_plist *lst_b)
-		ft_putstr_fd("Error\n", 2);
-	}
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
 

@@ -12,7 +12,7 @@
 
 #include "./includes/checker.h"
 
-static	void	ft_free_struct(t_plist *lst_a, t_plist *lst_b)
+static	void 	ft_free_struct(t_plist *lst_a, t_plist *lst_b)
 {
 	t_node *tmp;
 	t_node *elem;
@@ -38,10 +38,12 @@ static void		ft_checker_arg(int nbelem, char **tab)
 	int			nb;
 
 	i = 0;
+	if (nbelem < 1)
+		ft_error();
 	list_a = ft_plistnew();
 	list_b = ft_plistnew();
-	if (nbelem < 1 || !list_a || !list_b)
-		ft_error(10);
+	if (!list_a || !list_b)
+		ft_error();
 	while (i < nbelem)
 	{
 		if (ft_check(tab[i]) == 1)
@@ -64,10 +66,12 @@ static void		ft_checker(int argc, char **argv)
 	int			i;
 
 	i = 1;
+	if (argc < 1)
+		ft_error();
 	list_a = ft_plistnew();
 	list_b = ft_plistnew();
-	if (argc < 1 || !list_a || !list_b)
-		ft_error(10);
+	if (!list_a || !list_b)
+		ft_error();
 	while (argc-- > 1)
 	{
 		if (ft_check(argv[i]) == 1)

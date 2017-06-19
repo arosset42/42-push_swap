@@ -38,7 +38,7 @@ static void		ft_exect_operator(t_plist *l_a, t_plist *l_b,
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rrr(l_a, l_b, param);
 	else
-		ft_error(1);
+		ft_error();
 	return ;
 }
 
@@ -46,16 +46,23 @@ void			ft_start_verif(t_plist *l_a, t_plist *l_b)
 {
 	int		ret;
 	char	*line;
+	int		i;
 
+	i = 0;
+	if (l_a->v)
+		ft_print_op(l_a, l_b, NULL, i);
 	if (!(ft_verif_list(l_a->head, l_a->head->next) == 1))
 	{
 		while ((ret = get_next_line(0, &line) > 0))
 		{
 			ft_exect_operator(l_a, l_b, line, 0);
+			i++;
+			if (l_a->v)
+				ft_print_op(l_a, l_b, line, i);
 			ft_strdel(&line);
 		}
 	}
-	if (ft_verif_list(l_a->head, l_a->head->next) == 1)
+	if (ft_verif_list(l_a->head, l_a->head->next) && !l_b->head)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");

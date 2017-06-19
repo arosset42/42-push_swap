@@ -51,7 +51,7 @@ void					main_algo(t_plist *list_a, t_plist *list_b);
 
 t_plist					*ft_plistnew(void);
 t_plist					*ft_plistadd(t_plist *lst, int value);
-int						ft_verif_list(t_node *head_l, t_node *next_l);
+int						verif_l(t_node *head_l, t_node *next_l);
 
 void					ft_sa(t_plist *list_a, int param);
 void					ft_sb(t_plist *list_b, int param);

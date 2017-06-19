@@ -23,7 +23,8 @@ LIB_LINK		=	./libft/libft.a
 CH_INC_PATH		= 	./src_checker/includes
 CH_SRC_PATH		=	./src_checker
 CH_SRC_NAME 	= 	checker.c checker_read.c ft_list.c error.c ft_check_argv.c \
-					ft_atol.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c
+					ft_atol.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c\
+					ft_print.c 
 
 PS_INC_PATH		= 	./src_push_swap/includes
 PS_SRC_PATH		=	./src_push_swap
@@ -96,8 +97,8 @@ fclean: clean
 	@echo $(DELETE) : $(CH_TARGET)
 	@rm -rf $(PS_TARGET)
 	@echo $(DELETE) : $(PS_TARGET)
-	@make -C $(LIB_PATH) fclean
-	@echo $(DELETE_LIB) : Lib
+	#@make -C $(LIB_PATH) fclean
+	#@echo $(DELETE_LIB) : Lib
 
 re: fclean all
 

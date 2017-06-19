@@ -54,7 +54,7 @@ t_plist		*ft_plistadd(t_plist *lst, int value)
 	return (lst);
 }
 
-int			ft_verif_list(t_node *head_l, t_node *next_l)
+int			verif_l(t_node *head_l, t_node *next_l)
 {
 	while (next_l)
 	{
