@@ -6,7 +6,7 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:50:02 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/12 22:39:02 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/19 21:03:14 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ t_plist					*ft_plistadd(t_plist *lst, int value);
 int						ft_verif_list(t_node *head_l, t_node *next_l);
 
 void					ft_print_pile(t_plist *lst);
-void 					ft_print_op(t_plist *l_a, t_plist *l_b, char *line, int i);
+void					ft_print_op(t_plist *l_a, t_plist *l_b, char *line,
+							int i);
 
 void					ft_sa(t_plist *list_a, int param);
 void					ft_sb(t_plist *list_b, int param);

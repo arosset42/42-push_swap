@@ -6,13 +6,13 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 18:49:10 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/19 18:49:14 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/19 21:02:22 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/checker.h"
 
-static	void 	ft_print_etat(t_node *a, t_node *b)
+static	void	ft_print_etat(t_node *a, t_node *b)
 {
 	while (a || b)
 	{
@@ -35,7 +35,7 @@ static	void 	ft_print_etat(t_node *a, t_node *b)
 	}
 }
 
-void 	ft_print_op(t_plist *l_a, t_plist *l_b, char *line, int i)
+void			ft_print_op(t_plist *l_a, t_plist *l_b, char *line, int i)
 {
 	t_node	*a;
 	t_node	*b;
@@ -45,13 +45,15 @@ void 	ft_print_op(t_plist *l_a, t_plist *l_b, char *line, int i)
 	if (line)
 	{
 		ft_printf("-------------------------------\n");
-		ft_printf("|       op = %4s             |\n", line);
+		ft_printf("|       op = \033[35m%4s\033[00m             |\n", line);
 	}
 	else
-		ft_printf("|------------INIT-------------|\n");
+		ft_printf("-------------\033[35mINIT\033[00m--------------\n");
+	ft_printf("|    \033[33m%6s%3s\033[00m |    \033[33m%6s%3s\033[00m |\n",
+	 	"Pile_A", "", "Pile_B", "");
 	ft_printf("-------------------------------\n");
 	ft_print_etat(a, b);
 	ft_printf("-------------------------------\n");
-	ft_printf("| nombre de coup = %5d      |\n", i);
+	ft_printf("| nombre de coup = \033[32m%5d\033[00m      |\n", i);
 	ft_printf("-------------------------------\n\n");
 }

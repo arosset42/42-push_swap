@@ -29,8 +29,15 @@ int		ft_check_digit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) || str[i] == '-')
+		if (ft_isdigit(str[i]))
 			i++;
+		else if (str[i] == '-')
+		{
+			if (ft_isdigit(str[i + 1]))
+				i++;
+			else
+				ft_error(1);
+		}
 		else
 		{
 			ft_error(2);
