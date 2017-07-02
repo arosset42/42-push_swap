@@ -6,7 +6,7 @@
 /*   By: arosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:50:02 by arosset           #+#    #+#             */
-/*   Updated: 2017/06/12 22:39:54 by arosset          ###   ########.fr       */
+/*   Updated: 2017/06/21 16:43:29 by arosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void					ft_algo_merge(t_plist *l_a, t_plist *l_b, int param);
 void					ft_algo_bubble(t_plist *l_a, int param);
 void					ft_algo_select_sort(t_plist *list_a, t_plist *list_b,\
 							int param);
+void					algo_up_down(t_plist *a, t_plist *b, int param);
 
 #endif

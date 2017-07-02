@@ -24,13 +24,14 @@ CH_INC_PATH		= 	./src_checker/includes
 CH_SRC_PATH		=	./src_checker
 CH_SRC_NAME 	= 	checker.c checker_read.c ft_list.c error.c ft_check_argv.c \
 					ft_atol.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c\
-					ft_print.c 
+					ft_print.c
 
 PS_INC_PATH		= 	./src_push_swap/includes
 PS_SRC_PATH		=	./src_push_swap
 PS_SRC_NAME 	= 	push_swap.c ft_list.c error.c ft_check_argv.c ft_atol.c \
 					algo.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c \
-					ft_min_max.c algo_bubble.c algo_select_sort.c algo_merge.c
+					ft_min_max.c algo_bubble.c algo_select_sort.c algo_merge.c \
+					algo_up_down.c
 
 PS_OBJ_PATH		=	./obj_ps
 CH_OBJ_PATH		=	./obj_ch
@@ -105,3 +106,4 @@ re: fclean all
 test: all
 	./push_swap 5 32 1
 #ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+#`ruby -e "puts (-100..100).to_a.shuffle.join(' ')"`

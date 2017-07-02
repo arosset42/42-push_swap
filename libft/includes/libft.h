@@ -32,8 +32,6 @@ typedef struct		s_vark
 	t_gl			*gnl;
 }					t_vark;
 
-
-
 /*
 **					DEFINE GNL
 */
