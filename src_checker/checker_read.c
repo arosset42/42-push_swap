@@ -59,6 +59,7 @@ void			ft_start_verif(t_plist *l_a, t_plist *l_b)
 			i++;
 			if (l_a->v)
 				ft_print_op(l_a, l_b, line, i);
+			usleep(1000000);
 			ft_strdel(&line);
 		}
 	}
